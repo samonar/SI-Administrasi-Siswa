@@ -68,7 +68,7 @@
             <label for="varchar">Nominal Bayar <?php echo form_error('nominal_bayar') ?></label>
             <input type="text" class="form-control" name="nominal_bayar" id="nominal_bayar" placeholder="Nominal Bayar" value="<?php echo $nominal_bayar; ?>" />
         </div>
-	    <input type="hidden" name="" value="<?php echo $; ?>" /> 
+	    <input type="hidden" name="" value="<?php   ?>" /> 
 	    <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
 	    <a href="<?php echo site_url('view_tgh_siswa') ?>" class="btn btn-default">Cancel</a>
 	</form>
