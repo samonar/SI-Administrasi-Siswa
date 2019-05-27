@@ -288,7 +288,7 @@ class Kelas_siswa extends CI_Controller
         'kls12ipa' => $this->Kelas_model->cari_kelas('0','Lulus'),
         'kls12ips' => $this->Kelas_model->cari_kelas('0','Lulus'),
         'page_header'           => 'kenaikan kelas', //judul halaman
-        'active'                => 'naik kelas',
+        'active'                => '',
       );
 
       $this->template->display('kelas_siswa/naik_kelas',$data);

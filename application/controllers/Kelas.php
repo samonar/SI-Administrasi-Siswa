@@ -10,9 +10,9 @@ class Kelas extends CI_Controller
         parent::__construct();
         $this->load->model('Kelas_model');
         $this->load->library('form_validation');
-        $session_jabatan=$this->session->userdata('nama_jabatan');
-        if($session_jabatan!='admin TU'){
-            redirect('user');
+        $cek=$this->session->userdata('nama');
+        if($session_jabatan!='admin'){
+            redirect(site_url('login'));
         }
 
     }

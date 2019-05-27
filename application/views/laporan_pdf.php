@@ -94,7 +94,7 @@
    <?php }
  }?>
  <div class="tgl"><?php echo $data_tagihan->date ?></div>
- <div class="rp"><?php echo $data_tagihan->nominal_tagihan ?></div>
+ <div class="rp"><?php echo $data_tagihan->nominal ?></div>
  <div class="bendahara">Dewi Sri</div>
 </div>
 </body>

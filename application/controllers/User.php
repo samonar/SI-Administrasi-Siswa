@@ -2,16 +2,12 @@
 
 class User extends CI_Controller{
 
-	function __construct(){
+	function __construct(){		
 		parent::__construct();
 
 		$this->load->model(array('Saldo_model','Tagihan_siswa_kls_model','Jn_tagihan_model','Kelas_siswa_model','Siswa_model','Kelas_model','Pembayaran_model','User_model'));
     $this->load->library(array('form_validation','upload','image_lib','template','session'));
     $this->load->helper(array('form', 'url', 'html'));
-
-
-
-
 	}
 
 	//load form login

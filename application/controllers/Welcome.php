@@ -3,25 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	
 	function __construct(){
 		  parent::__construct();
         $this->load->model(array('Saldo_model','Tagihan_siswa_kls_model','Jn_tagihan_model','Kelas_siswa_model','Siswa_model','Kelas_model','Pembayaran_model','User_model'));
-        $this->load->library(array('form_validation','upload','image_lib','template','session'));
+        $this->load->library(array('form_validation','upload','image_lib','template','session','googlemaps'));
         $this->load->helper(array('form', 'url', 'html'));
 
 
@@ -38,7 +24,15 @@ class Welcome extends CI_Controller {
 		$session_nik=$this->session->userdata('id_user');
         $user_data=$this->User_model->get_by_id($session_nik);
 
-
+$config['center'] = '37.4419, -122.1419';
+$config['zoom'] = 'auto';
+$config['directions'] = TRUE;
+$config['directionsStart'] = 'State University of Malang';
+$config['directionsEnd'] = 'Universitas Brawijaya';
+$config['directionsDivID'] = 'directionsDiv';
+$this->googlemaps->initialize($config);
+// $data['map'] = $this->googlemaps->create_map();
+                    // $data['map'] = $this->googlemaps->create_map();
 
                     $data = array(
 
@@ -55,6 +49,7 @@ class Welcome extends CI_Controller {
                         'icon_header'           => 'fa-book',
                         'icon_header2'          => '',
                         'deskripsi_page_header' => '',
+                        'map'                   => $this->googlemaps->create_map(),
                         //'user_image'            => $user_data->image,
                         //'user_nama'             => $user_data->nama_,
                         //'user_jabatan'          => $user_data->jabatan,

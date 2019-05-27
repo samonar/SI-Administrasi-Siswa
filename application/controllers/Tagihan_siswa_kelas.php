@@ -497,15 +497,15 @@ class Tagihan_siswa_kelas extends CI_Controller
         echo ucwords(pembilang(89));
     }
 
-    public function kwitansi($id_tagihan){
+    public function kwitansi($id_tgh){
       $this->load->helper("pembilang");
       // echo ucwords(pembilang(89));
-      $data['data_tagihan'] = $this->Tagihan_siswa_kls_model->cari_tagihan($id_tagihan)->row();
-      $data['pembilang'] = ucwords(pembilang($data['data_tagihan']->nominal_tagihan)) ;
+      $data['data_tagihan'] = $this->Tagihan_bulanan_model->cek_jenis($id_tgh)->row();
+      $data['pembilang'] = ucwords(pembilang($data['data_tagihan']->nominal)) ;
 
     $this->load->library('pdf');
    $this->pdf->setPaper('A5', 'landscape');
-   $this->pdf->filename = "laporan-petanikode.pdf";
+   $this->pdf->filename = "kwitansi_siswa.pdf";
    $this->pdf->load_view('laporan_pdf', $data);
   }
 

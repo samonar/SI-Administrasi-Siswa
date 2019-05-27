@@ -15,7 +15,7 @@
                             <div class="form-group row">
                                   <label class="col-md-2 offset-md-3" for="varchar">Nis <?php echo form_error('nis') ?></label>
                                     <div class="col-md-4 col-sm-6 col-xs-12">
-                                  <input type="text" class="form-control 7 col-xs-12" name="nis" id="nis" placeholder="Nis" value="<?php echo $nis; ?>" required/>
+                                  <input type="text" class="form-control 7 col-xs-12" name="nis" id="nis" placeholder="Nis" value="<?php echo $nis; ?>" />
                               </div>
                             </div>
                             <div class="form-group row">

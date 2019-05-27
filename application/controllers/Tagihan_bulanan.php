@@ -171,12 +171,24 @@ class Tagihan_bulanan extends CI_Controller
        if ($this->form_validation->run() == FALSE) {
            $this->create();
        } else {
-         $id_tagihan_bulanan=$this->input->post('id_tagihan_bulanan',TRUE);
+        $id_tagihan_bulanan=$this->input->post('id_tagihan_bulanan',TRUE);
          $id_th_akademik=$this->input->post('th_aktif',TRUE);
          $kelas=$this->input->post('kelas',TRUE);
          $jn_tagihan=$this->input->post('jn_tagihan',TRUE);
          $nominal=$this->input->post('nominal',TRUE);
-         $bulan= $this->input->post('bulan',TRUE);
+         // $bulan= $this->input->post('bulan',TRUE);
+         $semester=$this->input->post('semester',TRUE);
+        if ($semester==1) {
+          if ($jn_tagihan==2) {
+           $bulan=[7];
+          }else{
+            $bulan=[7,8,9,10,11,12];
+          }
+        }
+        else {
+          $bulan=[1,2,3,4,5,6];          
+        }
+         
 
          $jumlah=count($bulan);
 
@@ -244,8 +256,8 @@ class Tagihan_bulanan extends CI_Controller
     public function _rules1()
     {
   $this->form_validation->set_rules('jn_tagihan', 'jn tagihan', 'trim|required');
-  $this->form_validation->set_rules('kelas', 'kelas', 'trim|required');
-  $this->form_validation->set_rules('bulan[]', 'bulan', 'trim|required');
+  $this->form_validation->set_rules('kelas', 'Tingkat', 'trim|required');
+  // $this->form_validation->set_rules('bulan[]', 'bulan', 'trim|required');
   $this->form_validation->set_rules('nominal', 'nominal', 'trim|required');
   $this->form_validation->set_rules('th_aktif', 'th_aktif', 'trim|required');
 

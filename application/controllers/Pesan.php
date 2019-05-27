@@ -33,7 +33,14 @@ class Pesan extends CI_Controller
     public function pesan()
     {
       $bln=Date('m');
-      $data=$this->Pesan_model->cr_blm_lunas($bln)->result();
+      if ($bln==12 || $bln==6) {
+        $data=$this->Pesan_model->cr_blm_lunas_all($bln)->result();
+      }else{
+        $data=$this->Pesan_model->cr_blm_lunas_spp($bln)->result();
+      }
+      
+
+
       foreach ($data as $key) {
         $pesan = array(
           'nis' => $key->nis,

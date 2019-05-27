@@ -1,4 +1,8 @@
        <!-- Main content -->
+       <!-- <script src="http://maps.googleapis.com/maps/api/js"></script>
+ 
+        <script> -->
+       <head><?php echo $map['js']; ?></head>
         <section class="content">
           <div class="container-fluid">
             <div class="card">
@@ -32,6 +36,8 @@
                 </h4>
               </div>
             </div>
+            <?php echo $map['html']; ?>
+            <div id="directionsDiv"></div>
           </div>
         </section>
         <!-- /.content -->

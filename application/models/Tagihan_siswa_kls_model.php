@@ -73,6 +73,7 @@ class Tagihan_siswa_kls_model extends CI_Model
       $this->db->join('kelas','kelas_siswa.id_kelas = kelas.id_kelas');
       $this->db->join('jn_tagihan','tagihan_bulanan.jn_tagihan = jn_tagihan.id_jn_tagihan');
       $this->db->where('th_akademik.status', 1);
+      $this->db->where('id_jn_tagihan',1);
       $this->db->where('kelas_siswa.nis',$nis );
       $this->db->where('tagihan_siswa_kls.status_bayar',0 );
       $this->db->order_by('kelas_siswa.nis, tagihan_siswa_kls.bulan, jn_tagihan.jn_tagihan');
@@ -131,7 +132,7 @@ class Tagihan_siswa_kls_model extends CI_Model
 
     function sum_export_pembayaran($idkls,$bln)
     {
-      $this->db->select('SUM(tagihan_siswa_kls.nominal_tagihan) AS total');
+      $this->db->select('SUM(tagihan_bulanan.nominal) AS total');
       $this->db->join('tagihan_bulanan','tagihan_siswa_kls.id_tagihan_bulanan=tagihan_bulanan.id_tagihan_bulanan');
       $this->db->join('kelas_siswa','tagihan_siswa_kls.id_kelas_siswa = kelas_siswa.id_kelas_siswa');
       $this->db->join('siswa','kelas_siswa.nis = siswa.nis');
@@ -140,6 +141,7 @@ class Tagihan_siswa_kls_model extends CI_Model
       $this->db->join('jn_tagihan','tagihan_bulanan.jn_tagihan = jn_tagihan.id_jn_tagihan');
       $this->db->where('th_akademik.status', 1);
       $this->db->where('tagihan_siswa_kls.status_bayar ',1);
+      $this->db->where('jn_tagihan.id_jn_tagihan ',1); 
       $this->db->where('kelas_siswa.id_kelas',$idkls);
       $this->db->where('tagihan_siswa_kls.bulan',$bln);
       $this->db->order_by('kelas_siswa.nis, tagihan_siswa_kls.bulan, jn_tagihan.jn_tagihan');
@@ -156,6 +158,7 @@ class Tagihan_siswa_kls_model extends CI_Model
       $this->db->join('jn_tagihan','tagihan_bulanan.jn_tagihan = jn_tagihan.id_jn_tagihan');
       $this->db->where('th_akademik.status', 1);
       $this->db->where('tagihan_siswa_kls.status_bayar ',1);
+      $this->db->where('jn_tagihan.id_jn_tagihan ',1); 
       $this->db->where('kelas_siswa.id_kelas',$idkls);
       $this->db->where('tagihan_siswa_kls.bulan',$bln);
       // $this->db->where('jn_tagihan.id_jn_tagihan',1);
@@ -306,6 +309,17 @@ class Tagihan_siswa_kls_model extends CI_Model
         'date' => $tgl ,
         'nominal_tagihan' => "0",
         'status_bayar' => "1" ,
+      );
+        $this->db->where($this->id, $id);
+        $this->db->update($this->table, $data);
+    }
+
+    function update_bayar($id,$id_pembayaran,$tgl)
+    {
+      $data = array(
+        'id_pembayaran' => $id_pembayaran ,
+        'date' => $tgl ,
+        'status_bayar' => 1,
       );
         $this->db->where($this->id, $id);
         $this->db->update($this->table, $data);

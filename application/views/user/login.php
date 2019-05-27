@@ -37,7 +37,7 @@
                             <div class="form-top">
                                 <div class="form-top-left">
                                     <h3>Login SPP</h3>
-                                    <p>Masukkan username dan password</p>
+                                    <p>Masukkan username dan fsdfsd</p>
                                 </div>
                                 <div class="form-top-right">
                                     <i class="fa fa-lock"></i>

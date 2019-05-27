@@ -43,6 +43,17 @@ class Tagihan_bulanan_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    function cek_jenis($id_tgh)
+    {
+
+        $this->db->join('tagihan_siswa_kls','tagihan_bulanan.id_tagihan_bulanan=tagihan_siswa_kls.id_tagihan_bulanan');
+        $this->db->join('kelas_siswa','tagihan_siswa_kls.id_kelas_siswa = kelas_siswa.id_kelas_siswa');
+        $this->db->join('siswa','kelas_siswa.nis = siswa.nis');
+        $this->db->join('jn_tagihan','tagihan_bulanan.jn_tagihan=jn_tagihan.id_jn_tagihan');
+        $this->db->where('id_tagihan_siswa_kelas',$id_tgh);
+        return $this->db->get($this->table);
+    }
+
     // get data by id
     function get_by_id($id)
     {

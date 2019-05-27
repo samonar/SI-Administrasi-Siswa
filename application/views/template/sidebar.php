@@ -72,19 +72,13 @@
         </li>
         <!-- pengajuan keringanan -->
         <li class="nav-item has-treeview <?php if($page_header=='keringanan'){?>menu-open<?php } ?>">
-          <a href="<?php echo base_url('tagihan_siswa_kelas/list_siswa'); ?>" class="nav-link <?php if($page_header=='keringanan'){?>active<?php } ?>">
+          <a href="<?php echo base_url('Pengajuan/view_pengajuan'); ?>" class="nav-link <?php if($page_header=='keringanan'){?>active<?php } ?>">
             <i class="nav-icon fa fa-th"></i>
             <p>
-              Pengajuan Keringanan
+              List Pengajuan Keringanan
               <i class="right fa fa-angle-left"></i>
             </p>
           </a>
-            <li class="nav-item">
-              <a href="<?php echo site_url('Pengajuan/view_pengajuan') ?>" class="nav-link <?php if($active=='daftar pengajuan'){?>active<?php } ?>">
-                <i class="fa fa-circle-o nav-icon"></i>
-                <p>Daftar Pengajuan</p>
-              </a>
-            </li>
           </ul>
         </li>
 

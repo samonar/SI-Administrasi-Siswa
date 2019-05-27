@@ -14,6 +14,7 @@
           </div>
           <?php } ?>
           <input type="hidden" class="form-control" name="th_aktif" id="th_aktif"  value="<?php echo $row->id_th_akademik;?>">
+          <input type="hidden" class="form-control" name="semester" id="semester"  value="<?php echo $row->semester;?>">
         </div>
 
         <div class="form-group row">
@@ -55,7 +56,7 @@
                 </div>
         </div>
 
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <label class="col-md-2 offset-md-3" for="bulan">Bulan <?php echo form_error('bulan') ?></label>
                 <div class="col-md-6 col-sm-9 col-xs-12">
                             <div class="checkbox">
@@ -99,7 +100,7 @@
                                   </p>
                             </div>
                 </div>
-        </div>
+        </div> -->
                         <input type="hidden" name="id_tagihan_bulanan" value="<?php echo $id_tagihan_bulanan ?>">
 
                       <div class="form-group">

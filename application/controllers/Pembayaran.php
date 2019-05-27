@@ -182,11 +182,12 @@ class Pembayaran extends CI_Controller
            $nomor=$jumlah;
            $data['id_pembayaran'] = $nomor;
          }
-         $tag_akhir=$jml_tagihan - $data['nominal_bayar'] ;
-         echo 'awalnya ='.$tag_akhir;
+         $tag_akhir=$jml_tagihan - ($data['nominal_bayar'] ) ;
+        
 
          if ($tag_akhir<=0) {
-          $sisa=abs($tag_akhir);
+          $sisa=(-1*$tag_akhir)+$saldosisa->nominal;
+        
           $this->Tagihan_siswa_kls_model->update_bayar_lunas($data2['id_tagihan_siswa_kelas'],$data['id_pembayaran'],$data['tgl']);
           $this->Pembayaran_model->insert($data);
           $this->Saldo_model->update('S'.$data['nis'],$sisa);

@@ -131,7 +131,7 @@ class ExportExcel extends CI_Controller
         }
       }
       xlsWriteLabel($tablebody, $kolombody++,$bulan );
-	    xlsWriteNumber($tablebody, $kolombody++, $data->nominal_tagihan);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->nominal);
       if ($data->status_bayar=1) {
         $ket='Lunas';
       }

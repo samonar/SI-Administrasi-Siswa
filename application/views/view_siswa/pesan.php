@@ -1,7 +1,7 @@
 <div class="col-md-9">
   <div class="card direct-chat direct-chat-warning">
   <div class="card-header">
-  <h3 class="card-title">Direct Chat</h3>
+  <h3 class="card-title">Informasi Bendahara</h3>
 
   <div class="card-tools">
 
