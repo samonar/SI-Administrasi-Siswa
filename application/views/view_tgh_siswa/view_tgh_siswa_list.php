@@ -81,11 +81,11 @@
 			<td><?php echo $view_tgh_siswa->nominal_bayar ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
-				echo anchor(site_url('view_tgh_siswa/read/'.$view_tgh_siswa->),'Read'); 
+				echo anchor(site_url('view_tgh_siswa/read/'.$view_tgh_siswa),'Read'); 
 				echo ' | '; 
-				echo anchor(site_url('view_tgh_siswa/update/'.$view_tgh_siswa->),'Update'); 
+				echo anchor(site_url('view_tgh_siswa/update/'.$view_tgh_siswa),'Update'); 
 				echo ' | '; 
-				echo anchor(site_url('view_tgh_siswa/delete/'.$view_tgh_siswa->),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
+				echo anchor(site_url('view_tgh_siswa/delete/'.$view_tgh_siswa),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
 				?>
 			</td>
 		</tr>

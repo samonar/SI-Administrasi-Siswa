@@ -7,7 +7,7 @@ class Saldo extends CI_Controller
 {
     function __construct()
     {
-         parent::__construct();
+        parent::__construct();
         $this->load->model(array('Saldo_model','Tagihan_siswa_kls_model','Jn_tagihan_model','Kelas_siswa_model','Siswa_model','Kelas_model','Pembayaran_model','User_model'));
         $this->load->library(array('form_validation','upload','image_lib','template','session'));
         $this->load->helper(array('form', 'url', 'html'));
@@ -23,10 +23,11 @@ class Saldo extends CI_Controller
 
     public function create()
     {
-      $id=$this->Saldo_model->get_all
+      $id=$this->Saldo_model->get_all;
       $data = array(
         'query' => $id,
-      )
+      );
     }
-]
+  }
+
 ?>
